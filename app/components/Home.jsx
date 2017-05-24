@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+// import store from '../store';
 
 export default class Home extends Component {
 
@@ -12,11 +13,13 @@ export default class Home extends Component {
                 <h1>Hogwarts School of Witchcraft and Wizardry</h1>
                     <div id='home'>
                         {
-                        this.props.children && React.cloneElement(this.props.children, props)
+                        this.props.children 
                         }
                     </div>
             </div>
         )
     }
 }
+
+//&& React.cloneElement(this.props.children, props)
 
