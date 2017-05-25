@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import Campuses from '../components/Campuses'
+import { removeCampus } from '../redux/campuses'
 
 
 const mapStateToProps = (state) => {
@@ -11,13 +12,15 @@ const mapStateToProps = (state) => {
     }
 }
 
-// const mapDispatchtoProps = (dispatch) => {
-//     return {
+const mapDispatchtoProps = (dispatch) => {
+    return {
+        removeCampus(campus) {
+            dispatch(removeCampus(campus))
+        }
+    }
+}
 
-//     }
-// }
-
-const CampusesContainer = connect(mapStateToProps)(Campuses);
+const CampusesContainer = connect(mapStateToProps, mapDispatchtoProps)(Campuses);
 
 export default CampusesContainer;
 

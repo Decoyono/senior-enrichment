@@ -5,24 +5,17 @@ const campusInitialState = {
     campuses: [],
 }
 
-
 /* -----------------    ACTIONS     ------------------ */
 
 const FETCH = 'FETCH_CAMPUSES'
 const ADD = 'ADD_CAMPUS';
 const EDIT = 'EDIT_CAMPUS';
-const DELETE = 'DELETE_CAMPUS';
+const REMOVE = 'REMOVE_CAMPUS';
 
 
 /* ------------   ACTION CREATORS     ------------------ */
 
-export const fetchCampuses = function(campuses) {
-    return {
-        type: "FETCH_CAMPUSES",
-        campuses
-    }
-}
-
+export const fetchCampuses = campuses => ({type: FETCH, campuses})
 const add  = campus => ({ type: ADD, campus });
 const edit = campus  => ({ type: EDIT, user });
 const remove = id    => ({ type: REMOVE, id });
@@ -53,10 +46,10 @@ export default function reducer (state = campusInitialState, action) {
     // case EDIT:
     //     return users.filter(user => user.id !== action.id);
 
-    // case REMOVE:
-    //     return users.map(user => (
-    //     action.user.id === user.id ? action.user : user
-    //     ));
+    case REMOVE:
+        return Object.assign({}, state, {
+            campuses: state.campuses.filter(campus => campus.id !== action.id)
+        });
 
     default:
         return state;
@@ -72,3 +65,10 @@ export const addCampus = campus => dispatch => {
         .then(res => dispatch(add(res.data)))
         browserHistory.push('/campuses')
 };
+
+export const removeCampus = campus => dispatch => {
+    dispatch(remove(campus.id))
+    axios.delete(`/api/campuses/${campus.id}`)
+        .then(() => console.log("fuck yeah"))
+
+}
