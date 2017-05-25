@@ -11,12 +11,9 @@ export default function Campuses(props) {
         <ul>
         {
         campuses.map(campus => (
-            <div className="col-md-4" id='oneCampusDiv'>
-            <Link to={`/campuses/${campus.get('id')}`}>
-                <span><h3>{campus.get('name')}</h3>
-                <img id="campusPic" className="img-circle" src={campus.get('imageURL')} />
-                </span>
-            </Link>           
+            <div key={campus.id} className="col-md-4" id='oneCampusDiv'>
+                <h1>{campus.name}</h1> 
+                <img src={campus.imageURL} />       
             </div>
             )
         )

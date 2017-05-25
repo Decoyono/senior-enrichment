@@ -21,7 +21,7 @@ import StudentContainer from './containers/StudentContainer'
 
 import {fetchCampuses} from './redux/campuses'
 
-//onEnter functions
+// onEnter functions
 const onHomeEnter = () => {
   console.log("HIIIII")
   const foundCampuses = axios.get('/api/campuses')
@@ -39,6 +39,8 @@ const onHomeEnter = () => {
     })
     .catch(console.error)
 }
+
+
 
 ReactDOM.render (
   <Provider store={store}>

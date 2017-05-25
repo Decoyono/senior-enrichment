@@ -1,22 +1,30 @@
 import axios from 'axios';
 
-
+const campusInitialState = {
+    campuses: [],
+}
 
 
 /* -----------------    ACTIONS     ------------------ */
 
-const INITIALIZE = 'INITIALIZE_CAMPUSES'
-const CREATE = 'CREATE_CAMPUS';
+const FETCH = 'FETCH_CAMPUSES'
+const ADD = 'ADD_CAMPUS';
 const EDIT = 'EDIT_CAMPUS';
 const DELETE = 'DELETE_CAMPUS';
 
 
 /* ------------   ACTION CREATORS     ------------------ */
 
-const init = campuses => ({type: INITIALIZE, campuses})
-const create  = campus => ({ type: CREATE, campus });
+export const fetchCampuses = function(campuses) {
+    return {
+        type: "FETCH_CAMPUSES",
+        campuses
+    }
+}
+
+const add  = campus => ({ type: ADD, campus });
 const edit = campus  => ({ type: EDIT, user });
-// const delete = id    => ({ type: DELETE, id });
+const remove = id    => ({ type: REMOVE, id });
 
 
 //import remove user?
@@ -24,11 +32,14 @@ const edit = campus  => ({ type: EDIT, user });
 
 /* ------------       REDUCER     ------------------ */
 
-export default function reducer (campuses = [], action) {
+export default function reducer (state = campusInitialState, action) {
     switch (action.type) {
 
-    case INITIALIZE:
-        return action.campuses;
+    case FETCH:
+        return Object.assign({}, state, {
+            campuses: action.campuses
+        });
+    
 
     // case ADD:
     //     return [action.user, ...users];
@@ -36,39 +47,22 @@ export default function reducer (campuses = [], action) {
     // case EDIT:
     //     return users.filter(user => user.id !== action.id);
 
-    // case DELETE:
+    // case REMOVE:
     //     return users.map(user => (
     //     action.user.id === user.id ? action.user : user
     //     ));
 
     default:
-        return users;
+        return state;
     }
 }
 
 
 /* ------------       DISPATCHERS     ------------------ */
 
-export const fetchCampuses = () => dispatch => {
-    axios.get('/api/campuses')
-        .then(res => dispatch(init(res.data)));
-};
-
-
-// export const removeUser = id => dispatch => {
-//     dispatch(remove(id));
-//     axios.delete(`/api/users/${id}`)
-//         .catch(err => console.error(`Removing user: ${id} unsuccesful`, err));
-// };
 
 export const addCampus = campus => dispatch => {
     axios.post('/api/campus', campus)
-        .then(res => dispatch(create(res.data)))
+        .then(res => dispatch(add(res.data)))
         .catch(err => console.error(`Creating user: ${user} unsuccesful`, err));
 };
-
-// export const updateUser = (id, user) => dispatch => {
-//     axios.put(`/api/users/${id}`, user)
-//         .then(res => dispatch(update(res.data)))
-//         .catch(err => console.error(`Updating user: ${user} unsuccesful`, err));
-// };
