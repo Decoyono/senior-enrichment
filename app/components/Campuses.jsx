@@ -8,6 +8,11 @@ export default function Campuses(props) {
     return (
     <div>
         <h2>Campuses</h2>
+        <button>
+            <Link to='/new-campus'>
+                <span className="glyphicon glyphicon-plus"> Add Campus</span>
+            </Link>
+        </button>
         <ul>
         {
         campuses.map(campus => (
