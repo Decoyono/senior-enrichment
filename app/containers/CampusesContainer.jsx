@@ -1,18 +1,23 @@
 import React, {Component} from 'react'
-import store from '../store';
+import { connect } from 'react-redux'
+import Campuses from '../components/Campuses'
 
-export default class CampusesContainer extends Component {
 
-    constructor (props) {
-    super(props);
-    }
+const mapStateToProps = (state) => {
+    console.log("THIS IS THE STATE", state)
 
-    render() {
-        return (
-            <div>
-                <h1>All Campuses</h1>
-            </div>
-        )
+    return {
+        campuses: state.campuses
     }
 }
+
+// const mapDispatchtoProps = (dispatch) => {
+//     return {
+
+//     }
+// }
+
+const CampusesContainer = connect(mapStateToProps)(Campuses);
+
+export default CampusesContainer;
 
