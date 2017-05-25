@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {browserHistory} from 'react-router'
 
 const campusInitialState = {
     campuses: [],
@@ -40,6 +41,11 @@ export default function reducer (state = campusInitialState, action) {
             campuses: action.campuses
         });
     
+    case ADD:
+        return Object.assign({}, state, {
+            campuses: state.campuses.concat(action.campus)
+        });
+    
 
     // case ADD:
     //     return [action.user, ...users];
@@ -62,7 +68,7 @@ export default function reducer (state = campusInitialState, action) {
 
 
 export const addCampus = campus => dispatch => {
-    axios.post('/api/campus', campus)
+    axios.post('/api/campuses', campus)
         .then(res => dispatch(add(res.data)))
-        .catch(err => console.error(`Creating user: ${user} unsuccesful`, err));
+        browserHistory.push('/campuses')
 };
