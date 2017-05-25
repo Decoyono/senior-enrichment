@@ -1,25 +1,16 @@
 import React, {Component} from 'react'
 // import store from '../store';
 
-export default class Home extends Component {
 
-    constructor (props) {
-    super(props);
-    }
+const Home = ({ children }) => {
+    return (
+    <div> 
+        <h1>Hogwarts</h1>
+    <div id="main" className="container-fluid">
+        { children }
+    </div>
+    </div>
+    )
+};
 
-    render() {
-        return (
-            <div>
-                <h1>Hogwarts School of Witchcraft and Wizardry</h1>
-                    <div id='home'>
-                        {
-                        this.props.children 
-                        }
-                    </div>
-            </div>
-        )
-    }
-}
-
-//&& React.cloneElement(this.props.children, props)
-
+export default Home;
