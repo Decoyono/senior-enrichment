@@ -21,22 +21,22 @@ const edit = campus  => ({ type: EDIT, user });
 
 /* ------------       REDUCER     ------------------ */
 
-export default function reducer (users = [], action) {
+export default function reducer (campuses = [], action) {
     switch (action.type) {
 
     case INITIALIZE:
         return action.campuses;
 
-    case ADD:
-        return [action.user, ...users];
+    // case ADD:
+    //     return [action.user, ...users];
 
-    case EDIT:
-        return users.filter(user => user.id !== action.id);
+    // case EDIT:
+    //     return users.filter(user => user.id !== action.id);
 
-    case DELETE:
-        return users.map(user => (
-        action.user.id === user.id ? action.user : user
-        ));
+    // case DELETE:
+    //     return users.map(user => (
+    //     action.user.id === user.id ? action.user : user
+    //     ));
 
     default:
         return users;
