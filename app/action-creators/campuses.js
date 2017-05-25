@@ -1,5 +1,5 @@
-import axios from 'axios'
+// import axios from 'axios'
 
-///Action creator
+// ///Actions
 
-const addCampus = campus => ({ type: ADD_CAMPUS, campus: campus });
+// const addCampus = campus => ({ type: ADD_CAMPUS, campus: campus });

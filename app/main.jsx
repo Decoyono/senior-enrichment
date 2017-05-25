@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom'
 import {render} from 'react-dom'
 import { Provider } from 'react-redux'
 import { Route, Router, IndexRedirect, browserHistory} from 'react-router'
+import axios from 'axios'
+var Promise = require('bluebird')
 
 import store from './store'
 
@@ -17,14 +19,36 @@ import CampusContainer from './containers/CampusContainer'
 import StudentsContainer from './containers/StudentsContainer'
 import StudentContainer from './containers/StudentContainer'
 
+import {fetchCampuses} from './redux/campuses'
+
+//onEnter functions
+const onHomeEnter = () => {
+  console.log("HIIIII")
+  const foundCampuses = axios.get('/api/campuses')
+    .then(function(res) {
+      return res.data
+    })
+  const foundStudents = axios.get('/api/students')
+    .then(function(res) {
+      return res.data
+  })
+  return Promise.all([foundCampuses, foundStudents])
+    .spread(function(campuses,students){
+      store.dispatch(fetchCampuses(campuses))
+      // store.dispatch(fetchStudents(students))
+    })
+    .catch(console.error)
+}
+
 ReactDOM.render (
   <Provider store={store}>
   <Router history={browserHistory}>
-    <Route path= "/" component={Home}>
+    <Route path= "/" component={Home} onEnter={onHomeEnter}>
     <Route path= "/campuses" component={CampusesContainer} />
     <Route path= "/campuses/:campusId" component={CampusContainer} />
     <Route path= "/students" component={StudentsContainer} />
     <Route path= "/students/:studentsId" component={StudentContainer} />
+    <IndexRedirect to = "/campuses" />
     </Route>
   </Router>
   </Provider>,

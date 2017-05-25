@@ -2,7 +2,7 @@ import axios from 'axios';
 
 /* -----------------    ACTIONS     ------------------ */
 
-const INTIALIZE = 'INITIALIZE_CAMPUSES'
+const INITIALIZE = 'INITIALIZE_CAMPUSES'
 const CREATE = 'CREATE_CAMPUS';
 const EDIT = 'EDIT_CAMPUS';
 const DELETE = 'DELETE_CAMPUS';
@@ -13,7 +13,7 @@ const DELETE = 'DELETE_CAMPUS';
 const init = campuses => ({type: INITIALIZE, campuses})
 const create  = campus => ({ type: CREATE, campus });
 const edit = campus  => ({ type: EDIT, user });
-const delete = id    => ({ type: DELETE, id });
+// const delete = id    => ({ type: DELETE, id });
 
 
 //import remove user?
@@ -51,7 +51,7 @@ export const fetchCampuses = () => dispatch => {
         .then(res => dispatch(init(res.data)));
 };
 
-// optimistic
+
 // export const removeUser = id => dispatch => {
 //     dispatch(remove(id));
 //     axios.delete(`/api/users/${id}`)
