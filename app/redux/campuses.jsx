@@ -15,7 +15,7 @@ const REMOVE = 'REMOVE_CAMPUS';
 const SELECT = 'SELECT_CAMPUS';
 
 
-/* ------------   ACTION CREATORS     ------------------ */
+/* ---------------   ACTION CREATORS  -------------------- */
 
 export const fetchCampuses = campuses => ({type: FETCH, campuses})
 const add  = campus => ({ type: ADD, campus });
@@ -24,11 +24,7 @@ const remove = id    => ({ type: REMOVE, id });
 export const selectCampus = campus => ({ type: SELECT, campus})
 
 
-
-//import remove user?
-
-
-/* ------------       REDUCERS    ------------------ */
+/* ----------------    REDUCERS    ------------------ */
 
 export default function reducer (state = campusInitialState, action) {
     switch (action.type) {

@@ -23,13 +23,13 @@ import EditCampus from './containers/EditCampus'
 import NewStudent from './containers/NewStudent'
 import EditStudent from './containers/EditStudent'
 
+//initial action-creator and dispatcher references for onEnter
 import {fetchCampuses, getOneCampus} from './redux/campuses'
 import {fetchStudents, getOneStudent} from './redux/students'
 
 
 // onEnter functions
 const onHomeEnter = () => {
-  console.log("HIIIII")
   const foundCampuses = axios.get('/api/campuses')
     .then(function(res) {
       return res.data
@@ -72,7 +72,6 @@ ReactDOM.render (
     <Route path= "/edit-campus/:campusId" component={EditCampus} />
     <Route path= "/new-student" component={NewStudent} />
     <Route path= "/edit-student/:studentId" component={EditStudent} />
-    <IndexRedirect to = "/campuses" />
     </Route>
   </Router>
   </Provider>,

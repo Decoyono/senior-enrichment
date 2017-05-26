@@ -53,7 +53,6 @@ class EditStudent extends Component {
                 <label>Select A Campus</label>
                 <div>
                   <select name="campusId" id="campusId" onChange={this.handleChange}>
-                    <option>    </option>
                     {campuses && campuses.map((campus) => {
                       return (<option
                                 key={campus.id}
@@ -87,20 +86,10 @@ const mapDispatchToProps = (dispatch) => {
           email: event.target.studentEmail.value, 
           campusId: event.target.campusId.value}, 
           event.target.id.value))
-          console.log("======>", event.target.id)
   }
   }
 }
-// const mapDispatchtoProps = (dispatch) => {
-//     return {
-//         setCampus(campus) {
-//             dispatch(selectCampus(campus))
-//         },
-//         removeCampus(campus) {
-//             dispatch(removeCampus(campus))
-//         }
-//     }
-// }
+
 
 const EditStudentForm = connect(
   mapStateToProps, mapDispatchToProps)(EditStudent);

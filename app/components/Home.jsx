@@ -5,7 +5,7 @@ import React, {Component} from 'react'
 const Home = ({ children }) => {
     return (
     <div> 
-        <h1>Hogwarts</h1>
+        <h2>Margaret Hamilton's Hogwarts Interplanetary Academy of JavaScript</h2>
     <div id="main" className="container-fluid">
         { children }
     </div>

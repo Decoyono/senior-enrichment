@@ -21,11 +21,11 @@ export default function Campuses(props) {
             <div key={campus.id} className="col-md-4" id='oneCampusDiv'>
             <Link to={`/campuses/${campus.id}`} onClick={()=> setCampus(campus)}>
                 <span><h3>{campus.name}</h3>
-                    <img id="campusPic" src={campus.imageURL} /> 
+                    <img id="campusPic" className="center-block" src={campus.imageURL} /> 
                 </span>
             </Link>
             <div>
-            <button className="btn btn-link"
+            <button className="btn btn-outline-danger"
                 onClick={(event) => {
                     event.preventDefault()
                     removeCampus(campus)}
