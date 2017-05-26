@@ -13,7 +13,7 @@ const Student = (props) => {
     
 
 return (<div>
-                <h2>Student</h2>
+                <h3>Student</h3>
                 <table className="table table-striped">
                     <thead>
                     <tr>
@@ -24,7 +24,7 @@ return (<div>
                     </thead>
                     <tbody>
                     <tr key={student.id}>
-                        <td><Link to={`/students/${student.id}`} onClick={() => setStudent(student)}>{student.name}</Link></td>
+                        <td>{student.name}</td>
                         <td>{student.email}</td>
                         <td><Link to={`/campuses/${student.campusId}`}
                                     onClick={() => setCampus(student.campusId)}>

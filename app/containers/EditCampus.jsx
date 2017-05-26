@@ -57,24 +57,3 @@ export default class EditCampus extends Component {
     }
 }
 
-// const mapStateToProps = (state) => {
-
-//     return {
-//         students: state.students.students,
-//         campuses: state.campuses.campuses,
-//     }
-//     }
-
-//     const mapDispatchToProps = (dispatch) => {
-    
-//     return {
-//         handleSubmit(event){
-//             dispatch(editStudent(
-//             {name: event.target.studentName.value, 
-//             email: event.target.studentEmail.value, 
-//             campusId: event.target.campusId.value}, 
-//             event.target.id.value))
-//     }
-//     }
-// }
-

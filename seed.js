@@ -11,12 +11,14 @@ const data = {
         {name: "Space Ravenclaw", imageURL: "http://vignette2.wikia.nocookie.net/harrypotter/images/2/29/0.41_Ravenclaw_Crest_Transparent.png/revision/latest?cb=20161020182442"},
     ],
     student: [
-        {name: "Harry", email: 'harry@gmail.com', campusId: 1},
-        {name: "Hooray", email: 'hooray@gmail.com', campusId: 2},
-        {name: "Heeray", email: 'heeray@hotmail.com', campusId: 3},
-        {name: "Hurray", email: 'hurray@gmail.com', campusId: 4},
-        {name: "Hirray", email: 'hirray@netmail.com', campusId: 1},
-        {name: "Huuray", email: 'heeray@gmail.com', campusId: 2},
+        {name: "Cedric Diggory", email: 'cedric@gmail.com', campusId: 1},
+        {name: "Draco Malfoy", email: 'draco@gmail.com', campusId: 2},
+        {name: "Harry Potter", email: 'harry@gmail.com', campusId: 3},
+        {name: "Cho Chang", email: 'cho@gmail.com', campusId: 4},
+        {name: "Newt Scadmander", email: 'newt@gmail.com', campusId: 1},
+        {name: "Vincent Crabbe", email: 'vincent@gmail.com', campusId: 2},
+        {name: "Hermione Granger", email: 'hermione@gmail.com', campusId: 3},
+        {name: "Luna Lovegood", email: 'Luna@gmail.com', campusId: 4},
     ]
 };
 

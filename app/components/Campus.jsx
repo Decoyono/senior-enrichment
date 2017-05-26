@@ -8,11 +8,13 @@ const Campus = (props) => {
     const student = props.students
     const campus = props.campuses
     const removeStudent = props.removeStudent
+    const setStudent = props.setStudent
 
     return (
     <div>
         <h1>{selectedCampus.name}</h1>
         <Students 
+        setStudent = {props.setStudent}
         removeStudent = {props.removeStudent}
         students={props.students} 
         campuses={props.campuses} 
