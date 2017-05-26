@@ -65,8 +65,8 @@ ReactDOM.render (
     <Route path= "/" component={Home} onEnter={onHomeEnter}>
     <Route path= "/campuses" component={CampusesContainer}  />
     <Route path= "/campuses/:campusId" component={CampusContainer} onEnter={onCampusEnter}/>
-    <Route path= "/students" component={StudentsContainer} onEnter={onStudentEnter}/>
-    <Route path= "/students/:studentsId" component={StudentContainer} />
+    <Route path= "/students" component={StudentsContainer} />
+    <Route path= "/students/:studentsId" component={StudentContainer} onEnter={onStudentEnter}/>
     <Route path= "/new-campus" component={NewCampus} />
     <Route path= "/edit-campus/:campusId" component={EditCampus} />
     <Route path= "/new-student" component={NewStudent} />

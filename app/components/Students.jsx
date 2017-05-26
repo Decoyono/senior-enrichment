@@ -44,7 +44,7 @@ export default function Students(props) {
                             data={student.id}
                                 onClick={(evt) => {
                                 evt.preventDefault()
-                                removeStudent(student.id)
+                                removeStudent(student)
                             }
                             }>
                             <span className="glyphicon glyphicon-remove" />
