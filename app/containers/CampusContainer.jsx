@@ -5,10 +5,13 @@ import Campus from '../components/Campus'
 import { selectStudent, removeStudent } from '../redux/students'
 
 const mapStateToProps = (state) => {
-
+    
+    const campusStudents = state.students.students.filter((student) => {
+        return student.campusId === state.campuses.selectedCampus.id
+    })
 
     return {
-        students: state.students.students,
+        students: campusStudents,
         selectedCampus: state.campuses.selectedCampus,
         campuses: state.campuses.campuses,
         selectedStudent: state.students.selectedStudents
