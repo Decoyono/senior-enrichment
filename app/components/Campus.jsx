@@ -7,7 +7,7 @@ const Campus = (props) => {
     return (
     <div>
         <h1>{selectedCampus.name}</h1>
-        <h2>other stuff</h2>
+        <Student student={props.students} campus={props.campuses} selectedStudent={props.selectedStudent} />
     </div>
     )
 }
