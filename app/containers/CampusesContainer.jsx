@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import Campuses from '../components/Campuses'
-import { removeCampus } from '../redux/campuses'
+import { removeCampus, selectCampus } from '../redux/campuses'
 
 
 const mapStateToProps = (state) => {
@@ -14,6 +14,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchtoProps = (dispatch) => {
     return {
+        setCampus(campus) {
+            dispatch(selectCampus(campus))
+        },
         removeCampus(campus) {
             dispatch(removeCampus(campus))
         }

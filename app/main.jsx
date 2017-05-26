@@ -19,8 +19,10 @@ import CampusContainer from './containers/CampusContainer'
 import StudentsContainer from './containers/StudentsContainer'
 import StudentContainer from './containers/StudentContainer'
 import NewCampus from './containers/NewCampus'
+import EditCampusForm from './containers/EditCampus'
 
-import {fetchCampuses} from './redux/campuses'
+import {fetchCampuses, getOneCampus} from './redux/campuses'
+
 
 // onEnter functions
 const onHomeEnter = () => {
@@ -41,17 +43,24 @@ const onHomeEnter = () => {
     .catch(console.error)
 }
 
+// const onCampusEnter = (nextRouterState) => {
+//   const campusId = nextRouterState.params.campusId;
+//   store.dispatch(getOneCampus(campusId))
+// }
+
+// onEnter={onCampusEnter}
 
 
 ReactDOM.render (
   <Provider store={store}>
   <Router history={browserHistory}>
     <Route path= "/" component={Home} onEnter={onHomeEnter}>
-    <Route path= "/campuses" component={CampusesContainer} />
+    <Route path= "/campuses" component={CampusesContainer}  />
     <Route path= "/campuses/:campusId" component={CampusContainer} />
     <Route path= "/students" component={StudentsContainer} />
     <Route path= "/students/:studentsId" component={StudentContainer} />
     <Route path= "/new-campus" component={NewCampus} />
+    <Route path= "/edit-campus/:campusId" component={EditCampusForm} />
     <IndexRedirect to = "/campuses" />
     </Route>
   </Router>

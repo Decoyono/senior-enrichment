@@ -1,9 +1,10 @@
 import axios from 'axios';
 import {browserHistory} from 'react-router'
 
-const campusInitialState = {
+const campusInitialState = ({
     campuses: [],
-}
+    selectedCampus: {}
+})
 
 /* -----------------    ACTIONS     ------------------ */
 
@@ -11,20 +12,23 @@ const FETCH = 'FETCH_CAMPUSES'
 const ADD = 'ADD_CAMPUS';
 const EDIT = 'EDIT_CAMPUS';
 const REMOVE = 'REMOVE_CAMPUS';
+const SELECT = 'SELECT_CAMPUS';
 
 
 /* ------------   ACTION CREATORS     ------------------ */
 
 export const fetchCampuses = campuses => ({type: FETCH, campuses})
 const add  = campus => ({ type: ADD, campus });
-const edit = campus  => ({ type: EDIT, user });
+const edit = campus  => ({ type: EDIT, campus });
 const remove = id    => ({ type: REMOVE, id });
+const select = campus => ({ type: SELECT, campus})
+
 
 
 //import remove user?
 
 
-/* ------------       REDUCER     ------------------ */
+/* ------------       REDUCERS    ------------------ */
 
 export default function reducer (state = campusInitialState, action) {
     switch (action.type) {
@@ -39,12 +43,16 @@ export default function reducer (state = campusInitialState, action) {
             campuses: state.campuses.concat(action.campus)
         });
     
+    case SELECT:
+        return Object.assign({}, state, {
+            selectedCampus: action.campus
+        });
 
-    // case ADD:
-    //     return [action.user, ...users];
+    case EDIT:
+        return Object.assign({}, state, {
+            selectedCampus: action.campus
+        });
 
-    // case EDIT:
-    //     return users.filter(user => user.id !== action.id);
 
     case REMOVE:
         return Object.assign({}, state, {
@@ -71,4 +79,21 @@ export const removeCampus = campus => dispatch => {
     axios.delete(`/api/campuses/${campus.id}`)
         .then(() => console.log("fuck yeah"))
 
-}
+};
+
+export const editCampus = function(campus, id) {
+    dispatch(edit(campus))
+    return function(dispatch) {
+        return axios.put(`/api/campuses/${id}`, campus)
+        .then(res => {
+       
+        browserHistory.go('/campuses')
+        })
+    }
+};
+
+export const getOneCampus = campusId => dispatch => {
+    axios.get(`/api/campuses/${campusId}`)
+        .then(res => dispatch(select(res.data)))
+};
+

@@ -7,6 +7,7 @@ export default function Campuses(props) {
     console.log("THESE ARE THE PROPS", props)
     const campuses = props.campuses;
     const removeCampus = props.removeCampus
+    const setCampus = props.setCampus
     return (
     <div>
         <h2>Campuses</h2>
@@ -19,8 +20,11 @@ export default function Campuses(props) {
         {
         campuses.map(campus => (
             <div key={campus.id} className="col-md-4" id='oneCampusDiv'>
-                <h1>{campus.name}</h1> 
-                <img src={campus.imageURL} /> 
+            <Link to={`/campuses/${campus.id}`} onClick={()=> setCampus(campus)}>
+                <span><h3>{campus.name}</h3>
+                    <img id="campusPic" src={campus.imageURL} /> 
+                </span>
+            </Link>
             <div>
             <button className="btn btn-link"
                 onClick={(event) => {
@@ -29,6 +33,14 @@ export default function Campuses(props) {
                 }>
                 <span id="campusBtn" className="glyphicon glyphicon-remove">REMOVE</span>
             </button> 
+            <button 
+                className="btn btn-link btn-sm"
+                data={campus.id}
+                onClick={() => setCampus(campus)}>
+                <Link to={`/edit-campus/${campus.id}`}>
+                <span id="campusBtn" className="glyphicon glyphicon-remove">EDIT</span>
+                </Link>
+            </button>
             </div>     
             </div>
             
@@ -40,20 +52,3 @@ export default function Campuses(props) {
     );
 }
 
-/*export default function Campuses(props) {
-    return (
-        <div>
-            <h2>Campuses</h2>
-            <button>
-            Add Campus
-            </button>
-
-            <ul>
-                Campuses eventually
-                <button>
-                    delete campus
-                </button>
-            </ul>
-        </div>
-    )
-}*/
