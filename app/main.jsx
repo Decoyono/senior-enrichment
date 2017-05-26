@@ -38,7 +38,7 @@ const onHomeEnter = () => {
   return Promise.all([foundCampuses, foundStudents])
     .spread(function(campuses,students){
       store.dispatch(fetchCampuses(campuses))
-      // store.dispatch(fetchStudents(students))
+      store.dispatch(fetchStudents(students))
     })
     .catch(console.error)
 }

@@ -8,6 +8,7 @@ export default function Campuses(props) {
     const campuses = props.campuses;
     const removeCampus = props.removeCampus
     const setCampus = props.setCampus
+    console.log("do i have campuses", campuses)
     return (
     <div>
         <h2>Campuses</h2>
@@ -18,7 +19,7 @@ export default function Campuses(props) {
         </button>
         <ul>
         {
-        campuses.map(campus => (
+        campuses.length && campuses.map(campus => (
             <div key={campus.id} className="col-md-4" id='oneCampusDiv'>
             <Link to={`/campuses/${campus.id}`} onClick={()=> setCampus(campus)}>
                 <span><h3>{campus.name}</h3>

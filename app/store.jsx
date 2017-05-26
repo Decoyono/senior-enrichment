@@ -4,4 +4,3 @@ import createLogger from 'redux-logger'; // https://github.com/evgenyrodionov/re
 import thunkMiddleware from 'redux-thunk'; // https://github.com/gaearon/redux-thunk
 
 export default createStore(campusReducer, applyMiddleware(thunkMiddleware, createLogger()))
-

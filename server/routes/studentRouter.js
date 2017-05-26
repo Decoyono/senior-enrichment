@@ -22,7 +22,7 @@ studentRouter.post('/', function (req, res, next) {
 
 //find one campus
 //error handle later~~~
-studentRouter.get('/:studnetId', function (req, res, next) {
+studentRouter.get('/:studentId', function (req, res, next) {
     if (typeof (+req.params.studentId) !== 'number') {
         res.status(404).send('Student Id Invalid')
     } else {

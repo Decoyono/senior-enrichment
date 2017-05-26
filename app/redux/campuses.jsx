@@ -86,7 +86,7 @@ export const editCampus = function(campus, id) {
     return function(dispatch) {
         return axios.put(`/api/campuses/${id}`, campus)
         .then(res => {
-       
+        dispatch(edit(campus))
         browserHistory.go('/campuses')
         })
     }

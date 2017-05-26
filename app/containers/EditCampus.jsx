@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-import store from '../store'
+// import store from '../store'
 import { editCampus } from '../redux/campuses'
 
 class EditCampus extends Component {
