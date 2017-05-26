@@ -77,7 +77,7 @@ export const addStudent = student => dispatch => {
 export const removeStudent = student => dispatch => {
     dispatch(remove(student.id))
     axios.delete(`/api/students/${student.id}`)
-        .then(() => console.log("fuck yeah"))
+        .then(() => console.log("did it"))
 
 };
 

@@ -47,13 +47,11 @@ const onHomeEnter = () => {
 }
 
 const onCampusEnter = (nextRouterState) => {
-  console.log("WOWOWOWO", nextRouterState)
   const campusId = nextRouterState.params.campusId;
   store.dispatch(getOneCampus(campusId))
 }
 
 const onStudentEnter = (nextRouterState) => {
-  console.log("======>", nextRouterState)
   const studentId = nextRouterState.params.studentsId;
   store.dispatch(getOneStudent(studentId))
 }

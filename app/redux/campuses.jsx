@@ -45,7 +45,6 @@ export default function reducer (state = campusInitialState, action) {
         });
 
     case EDIT:
-        console.log("WTF")
         return Object.assign({}, state, {
             campuses: state.campuses.map(campus => (action.campus.id === campus.id ? action.campus : campus))
         });
@@ -74,7 +73,7 @@ export const addCampus = campus => dispatch => {
 export const removeCampus = campus => dispatch => {
     dispatch(remove(campus.id))
     axios.delete(`/api/campuses/${campus.id}`)
-        .then(() => console.log("fuck yeah"))
+        .then(() => console.log("did it"))
 
 };
 

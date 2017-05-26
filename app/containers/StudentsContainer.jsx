@@ -27,7 +27,6 @@ const mapDispatchToProps = (dispatch) => {
         } 
     }
 }
-console.log("WHERE YOU AT", mapDispatchToProps)
 
 const StudentsContainer = connect(
     mapStateToProps, mapDispatchToProps

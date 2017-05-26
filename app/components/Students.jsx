@@ -3,7 +3,6 @@ import { Link } from 'react-router'
 
 export default function Students(props) {
 
-    console.log("WUT ARE THESE", props)
 
     const students = props.students;
     const campuses = props.campuses;

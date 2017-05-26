@@ -3,7 +3,6 @@ import Students from './Students'
 import {Link} from 'react-router'
 
 const Student = (props) => {
-    console.log("WOOWOO", props)
     const student = props.selectedStudent
     const setStudent = props.setStudent
     const addStudent = props.addStudent

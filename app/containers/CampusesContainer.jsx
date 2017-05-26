@@ -5,7 +5,7 @@ import { removeCampus, selectCampus } from '../redux/campuses'
 
 
 const mapStateToProps = (state) => {
-    console.log("THIS IS THE STATE", state)
+
 
     return {
         campuses: state.campuses.campuses
