@@ -10,11 +10,11 @@ export default function Campuses(props) {
     return (
     <div>
         <h2>Campuses</h2>
+        <Link to='/new-campus'>
         <button>
-            <Link to='/new-campus'>
-                <span className="glyphicon glyphicon-plus">Add Campus</span>
-            </Link>
+            <span className="glyphicon glyphicon-plus">Add Campus</span>
         </button>
+        </Link>
         <ul>
         {
         campuses.map(campus => (
@@ -32,14 +32,14 @@ export default function Campuses(props) {
                 }>
                 <span id="campusBtn" className="glyphicon glyphicon-remove">REMOVE</span>
             </button> 
+        <Link to={`/edit-campus/${campus.id}`}>
             <button 
                 className="btn btn-link btn-sm"
                 data={campus.id}
                 onClick={() => setCampus(campus)}>
-                <Link to={`/edit-campus/${campus.id}`}>
                 <span id="campusBtn" className="glyphicon glyphicon-pencil">EDIT</span>
-                </Link>
             </button>
+        </Link>
             </div>     
             </div>
             
