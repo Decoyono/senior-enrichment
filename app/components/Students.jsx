@@ -15,11 +15,11 @@ export default function Students(props) {
 
     return (<div>
                 <h2>Students</h2>
-                <button>
-                    <Link to={`/new-student`}>
-                    <span>Add A Student</span>
-                    </Link>
+                <Link to={`/new-student`}>   
+                    <button type="button" className="btn btn-primary glyphicon glyphicon-plus">
+                    <span>Add Student</span>
                 </button>
+                </Link>
                 <table className="table table-striped">
                     <thead>
                     <tr>
@@ -50,14 +50,14 @@ export default function Students(props) {
                             }>
                             <span className="glyphicon glyphicon-remove" />
                             </button>
+                            <Link to={`/edit-student/${student.id}`}>
                             <button
                             className="btn btn-link btn-sm"
                             data={student.id}
                             onClick={() => setStudent(student)}>
-                            <Link to={`/edit-student/${student.id}`}>
                             <span className="glyphicon glyphicon-pencil" />
-                            </Link>
                             </button>
+                            </Link>
                         </td>
                         </tr>
                     )}

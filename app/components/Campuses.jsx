@@ -11,7 +11,7 @@ export default function Campuses(props) {
     <div>
         <h2>Campuses</h2>
         <Link to='/new-campus'>
-        <button>
+        <button type="button" className="btn btn-primary">
             <span className="glyphicon glyphicon-plus">Add Campus</span>
         </button>
         </Link>
@@ -25,7 +25,7 @@ export default function Campuses(props) {
                 </span>
             </Link>
             <div>
-            <button className="btn btn-outline-danger"
+            <button type="button" className="btn btn-danger"
                 onClick={(event) => {
                     event.preventDefault()
                     removeCampus(campus)}
@@ -34,7 +34,8 @@ export default function Campuses(props) {
             </button> 
         <Link to={`/edit-campus/${campus.id}`}>
             <button 
-                className="btn btn-link btn-sm"
+                type="button" 
+                className="btn btn-secondary"
                 data={campus.id}
                 onClick={() => setCampus(campus)}>
                 <span id="campusBtn" className="glyphicon glyphicon-pencil">EDIT</span>
