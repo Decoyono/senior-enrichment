@@ -1,29 +1,45 @@
 import React, {Component} from 'react'
 import Students from './Students'
+import {Link} from 'react-router'
 
 const Student = (props) => {
-    console.log(props)
-    const students = props.selectedStudent
+    console.log("WOOWOO", props)
+    const student = props.selectedStudent
     const setStudent = props.setStudent
     const addStudent = props.addStudent
     const removeStudent = props.removeStudent
     const campuses = props.campuses
     const setCampus = props.setCampus;
-    console.log("wtf", props)
     
 
+return (<div>
+                <h2>Student</h2>
+                <table className="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Campus</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr key={student.id}>
+                        <td><Link to={`/students/${student.id}`} onClick={() => setStudent(student)}>{student.name}</Link></td>
+                        <td>{student.email}</td>
+                        <td><Link to={`/campuses/${student.campusId}`}
+                                    onClick={() => setCampus(student.campusId)}>
+                                    {campuses.map(campus => ((campus.id === student.campusId) ? campus.name : null))}
+                            </Link>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>)
 
-
-
-
-
-    return (
-   <div>
-       <h1> {students.name} </h1>
-       <h2> {students.email} </h2>
-       <h3> {students.campusId} </h3>
-    </div>
-    )
 }
+
+
+
+
 
 export default Student;
