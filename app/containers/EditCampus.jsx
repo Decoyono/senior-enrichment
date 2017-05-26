@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-
 import store from '../store'
 import { editCampus } from '../redux/campuses'
 
-class EditCampusLocal extends Component {
+
+export default class EditCampus extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -27,11 +27,9 @@ class EditCampusLocal extends Component {
 
 
     render() {
-        // const selectedCampus = state.selectedCampus;
+
         
         return (
-            <div><h1>hii</h1></div>
-/*        
         <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="campusName">Campus Name</label>
@@ -39,7 +37,6 @@ class EditCampusLocal extends Component {
                     type="text"
                     className="form-control"
                     id="name"
-                    placeholder={selectedCampus.name}
                     onChange={this.handleChange}
                     />
                 </div>
@@ -49,24 +46,13 @@ class EditCampusLocal extends Component {
                     type="text"
                     className="form-control"
                     id="imageURL"
-                    placeholder={selectedCampus.imageURL}
                     onChange={this.handleChange}
                     />
                 </div>
-                <button type="submit" className="btn btn-success">Submit</button>
-                </form>)*/
-        )
+                <button 
+                type="submit" className="btn btn-success">
+                Submit</button>
+                </form>)
+        
     }
-    }
-
-    const mapStateToProps = (state) => {
-
-    return {
-        selectedCampus: state.campuses.selectedCampus
-    }
-    }
-
-    const EditCampus = connect(
-    mapStateToProps)(EditCampusLocal);
-
-export default EditCampus;
+}

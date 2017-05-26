@@ -46,7 +46,9 @@ campusRouter.put('/:campusId', function (req, res, next) {
                 id: req.params.campusId
             }
         })
-        .then(updatedCampus => res.status(201).send)
+        .then(updatedCampus => {
+            res.status(201).json(updatedCampus)
+        })
         .catch(next)
 })
 
