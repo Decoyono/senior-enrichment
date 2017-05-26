@@ -19,7 +19,7 @@ export default function Campuses(props) {
         </button>
         <ul>
         {
-        campuses.length && campuses.map(campus => (
+        campuses.map(campus => (
             <div key={campus.id} className="col-md-4" id='oneCampusDiv'>
             <Link to={`/campuses/${campus.id}`} onClick={()=> setCampus(campus)}>
                 <span><h3>{campus.name}</h3>

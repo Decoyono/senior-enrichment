@@ -22,6 +22,7 @@ import NewCampus from './containers/NewCampus'
 import EditCampusForm from './containers/EditCampus'
 
 import {fetchCampuses, getOneCampus} from './redux/campuses'
+import {fetchStudents, getOneStudent} from './redux/students'
 
 
 // onEnter functions
