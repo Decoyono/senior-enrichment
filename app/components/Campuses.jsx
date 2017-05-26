@@ -37,7 +37,7 @@ export default function Campuses(props) {
                 data={campus.id}
                 onClick={() => setCampus(campus)}>
                 <Link to={`/edit-campus/${campus.id}`}>
-                <span id="campusBtn" className="glyphicon glyphicon-remove">EDIT</span>
+                <span id="campusBtn" className="glyphicon glyphicon-pencil">EDIT</span>
                 </Link>
             </button>
             </div>     

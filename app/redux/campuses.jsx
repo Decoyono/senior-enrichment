@@ -49,6 +49,7 @@ export default function reducer (state = campusInitialState, action) {
         });
 
     case EDIT:
+        console.log("WTF")
         return Object.assign({}, state, {
             campuses: state.campuses.map(campus => (action.campus.id === campus.id ? action.campus : campus))
         });
@@ -85,8 +86,7 @@ export const editCampus = (campus, id) => dispatch =>  {
         axios.put(`/api/campuses/${id}`, campus)
         .then(res =>  dispatch(edit(res.data)))
         .then(() => 
-        browserHistory.push('/campuses')
-        )
+        browserHistory.push('/campuses'))
 };
 export const getOneCampus = campusId => dispatch => {
     axios.get(`/api/campuses/${campusId}`)

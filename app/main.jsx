@@ -21,6 +21,7 @@ import StudentContainer from './containers/StudentContainer'
 import NewCampus from './containers/NewCampus'
 import EditCampus from './containers/EditCampus'
 import NewStudent from './containers/NewStudent'
+import EditStudent from './containers/EditStudent'
 
 import {fetchCampuses, getOneCampus} from './redux/campuses'
 import {fetchStudents, getOneStudent} from './redux/students'
@@ -70,6 +71,7 @@ ReactDOM.render (
     <Route path= "/new-campus" component={NewCampus} />
     <Route path= "/edit-campus/:campusId" component={EditCampus} />
     <Route path= "/new-student" component={NewStudent} />
+    <Route path= "/edit-student/:studentId" component={EditStudent} />
     <IndexRedirect to = "/campuses" />
     </Route>
   </Router>

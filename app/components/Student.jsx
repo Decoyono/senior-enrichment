@@ -7,6 +7,7 @@ const Student = (props) => {
     const addStudent = props.addStudent
     const removeStudent = props.removeStudent
     const campuses = props.campuses
+    const setCampus = props.setCampus;
     console.log("wtf", props)
     
 

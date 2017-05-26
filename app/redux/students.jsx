@@ -50,7 +50,7 @@ export default function reducer (state = studentInitialState, action) {
 
     case EDIT:
         return Object.assign({}, state, {
-            selectedStudent: action.student
+            students: state.students.map(student => (action.student.id === student.id ? action.student : student))
         });
 
 
@@ -81,15 +81,11 @@ export const removeStudent = student => dispatch => {
 
 };
 
-export const editStudent = function(student, id) {
-    dispatch(edit(student))
-    return function(dispatch) {
-        return axios.put(`/api/students/${id}`, student)
-        .then(res => {
-        dispatch(edit(student))
-        browserHistory.go('/students')
-        })
-    }
+export const editStudent = (student, id) => dispatch => {
+        axios.put(`/api/students/${id}`, student)
+        .then(res => dispatch(edit(res.data)))
+        .then(() =>
+        browserHistory.push('/students'))
 };
 
 export const getOneStudent = studentId => dispatch => {
