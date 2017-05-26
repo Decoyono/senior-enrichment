@@ -7,7 +7,6 @@ import { selectStudent, removeStudent } from '../redux/students'
 import { getOneCampus } from '../redux/campuses'
 
 const mapStateToProps = (state) => {
-
     return {
     students: state.students.students,
     selectedStudent: state.students.selectedStudent,
@@ -27,7 +26,8 @@ const mapDispatchToProps = (dispatch) => {
         dispatch(removeStudent(studentId))
         } 
     }
-    }
+}
+console.log("WHERE YOU AT", mapDispatchToProps)
 
 const StudentsContainer = connect(
     mapStateToProps, mapDispatchToProps

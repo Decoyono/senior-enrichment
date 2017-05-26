@@ -1,14 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-
-
 export default function Campuses(props) {
-    console.log("THESE ARE THE PROPS", props)
+
     const campuses = props.campuses;
     const removeCampus = props.removeCampus
     const setCampus = props.setCampus
-    console.log("do i have campuses", campuses)
+
     return (
     <div>
         <h2>Campuses</h2>

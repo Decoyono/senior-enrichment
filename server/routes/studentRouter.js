@@ -11,7 +11,7 @@ studentRouter.get('/', function (req, res, next) {
         .catch(next);
 })
 
-//new campus
+//new student
 studentRouter.post('/', function (req, res, next) {
     Student.create(req.body)
         .then(newStudent => {
@@ -20,7 +20,7 @@ studentRouter.post('/', function (req, res, next) {
         .catch(next)
 })
 
-//find one campus
+//find one student
 //error handle later~~~
 studentRouter.get('/:studentId', function (req, res, next) {
     if (typeof (+req.params.studentId) !== 'number') {
@@ -31,14 +31,14 @@ studentRouter.get('/:studentId', function (req, res, next) {
                 if (!foundStudent) {
                     res.status(404).send('Student does not exist')
                 } else {
-                    res.status(200).send(oneStudent)
+                    res.status(200).send(foundStudent)
                 }
             })
             .catch(next)
     }
 })
 
-//update campus
+//update student
 studentRouter.put('/:studentId', function (req, res, next) {
     Student.update(req.body, {
             where: {
@@ -49,7 +49,7 @@ studentRouter.put('/:studentId', function (req, res, next) {
         .catch(next)
 })
 
-//delete campus
+//delete student
 studentRouter.delete('/:studentId', function (req, res, next) {
     Student.destroy({
             where: {

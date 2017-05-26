@@ -32,7 +32,7 @@ campusRouter.get('/:campusId', function (req, res, next) {
                 if (!foundCampus) {
                     res.status(404).send('Campus does not exist')
                 } else {
-                    res.status(200).send(oneCampus)
+                    res.status(200).send(foundCampus)
                 }
             })
             .catch(next)

@@ -45,12 +45,18 @@ const onHomeEnter = () => {
     .catch(console.error)
 }
 
-// const onCampusEnter = (nextRouterState) => {
-//   const campusId = nextRouterState.params.campusId;
-//   store.dispatch(getOneCampus(campusId))
-// }
+const onCampusEnter = (nextRouterState) => {
+  console.log("WOWOWOWO", nextRouterState)
+  const campusId = nextRouterState.params.campusId;
+  store.dispatch(getOneCampus(campusId))
+}
 
-// onEnter={onCampusEnter}
+const onStudentEnter = (nextRouterState) => {
+  console.log("======>", nextRouterState)
+  const studentId = nextRouterState.params.studentsId;
+  store.dispatch(getOneStudent(studentId))
+}
+
 
 
 ReactDOM.render (
@@ -58,9 +64,9 @@ ReactDOM.render (
   <Router history={browserHistory}>
     <Route path= "/" component={Home} onEnter={onHomeEnter}>
     <Route path= "/campuses" component={CampusesContainer}  />
-    <Route path= "/campuses/:campusId" component={CampusContainer} />
+    <Route path= "/campuses/:campusId" component={CampusContainer} onEnter={onCampusEnter}/>
     <Route path= "/students" component={StudentsContainer} />
-    <Route path= "/students/:studentsId" component={StudentContainer} />
+    <Route path= "/students/:studentsId" component={StudentContainer} onEnter={onStudentEnter}/>
     <Route path= "/new-campus" component={NewCampus} />
     <Route path= "/edit-campus/:campusId" component={EditCampus} />
     <Route path= "/new-student" component={NewStudent} />

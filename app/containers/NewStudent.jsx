@@ -54,7 +54,7 @@ class NewStudent extends Component {
                     <label>Select A Campus</label>
                     <div>
                     <select id="campusId" onChange={this.handleChange}>
-                        <option>    </option> {/*blank first choice*/}
+                        <option>    </option>
                         {campuses && campuses.map((campus) => {
                         return (<option
                                     key={campus.id}
@@ -68,19 +68,15 @@ class NewStudent extends Component {
                 </form>)
     }
     }
-{/*onSubmit={/*enter function to dispatch action that adds student*/}
 
 
 const mapStateToProps = (state) => {
 
-    //to access prop in current state - state.campusData.campuses
     return {
     students: state.students.students,
     campuses: state.campuses.campuses
     }
 }
-
-// need to pull in some function to dispatch addStudent
 
 const NewStudentForm = connect(
     mapStateToProps)(NewStudent);

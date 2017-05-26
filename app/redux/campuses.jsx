@@ -90,6 +90,6 @@ export const editCampus = (campus, id) => dispatch =>  {
 };
 export const getOneCampus = campusId => dispatch => {
     axios.get(`/api/campuses/${campusId}`)
-        .then(res => dispatch(select(res.data)))
+        .then(res => dispatch(selectCampus(res.data)))
 };
 

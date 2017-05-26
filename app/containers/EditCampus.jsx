@@ -13,7 +13,7 @@ export default class EditCampus extends Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        console.log("where u at", props)
+
     }
 
     handleChange(event) {

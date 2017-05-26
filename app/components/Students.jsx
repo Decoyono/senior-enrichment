@@ -3,12 +3,14 @@ import { Link } from 'react-router'
 
 export default function Students(props) {
 
+
     const students = props.students;
     const campuses = props.campuses;
     const setStudent = props.setStudent;
     const setCampus = props.setCampus;
-    // const addStudent = props.addStudent;
     const removeStudent = props.removeStudent;
+
+
 
     return (<div>
                 <h2>Students</h2>
@@ -31,9 +33,6 @@ export default function Students(props) {
                         student => <tr key={student.id}>
                         <td><Link to={`/students/${student.id}`} onClick={() => setStudent(student)}>{student.name}</Link></td>
                         <td>{student.email}</td>
-                        {/*below onClick of link to campus, sets the campus to selectedCampus
-                            also shows the campus for the specific students' campus at the row by mapping thru
-                            maybe there is a cleaner solution?*/}
                         <td><Link to={`/campuses/${student.campusId}`}
                                     onClick={() => setCampus(student.campusId)}>
                                     {campuses.map(campus => ((campus.id === student.campusId) ? campus.name : null))}

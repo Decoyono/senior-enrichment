@@ -94,6 +94,6 @@ export const editStudent = function(student, id) {
 
 export const getOneStudent = studentId => dispatch => {
     axios.get(`/api/students/${studentId}`)
-        .then(res => dispatch(select(res.data)))
+        .then(res => dispatch(selectStudent(res.data)))
 };
 
