@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-// import store from '../store'
+import store from '../store'
 import { editCampus } from '../redux/campuses'
 
-class EditCampus extends Component {
+class EditCampusLocal extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -13,7 +13,7 @@ class EditCampus extends Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-
+        console.log("where u at", props)
     }
 
     handleChange(event) {
@@ -27,9 +27,12 @@ class EditCampus extends Component {
 
 
     render() {
-        const selectedCampus = this.props.selectedCampus;
-        // auto populate name/imageURL of campus selected for edit
-        return (<form onSubmit={this.handleSubmit}>
+        // const selectedCampus = state.selectedCampus;
+        
+        return (
+            <div><h1>hii</h1></div>
+/*        
+        <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="campusName">Campus Name</label>
                     <input
@@ -51,19 +54,19 @@ class EditCampus extends Component {
                     />
                 </div>
                 <button type="submit" className="btn btn-success">Submit</button>
-                </form>)
+                </form>)*/
+        )
     }
     }
 
     const mapStateToProps = (state) => {
 
-    //to access prop in current state - state.campusData.campuses
     return {
-        selectedCampus: state.selectedCampus
+        selectedCampus: state.campuses.selectedCampus
     }
     }
 
-    const EditCampusForm = connect(
-    mapStateToProps)(EditCampus);
+    const EditCampus = connect(
+    mapStateToProps)(EditCampusLocal);
 
-export default EditCampusForm;
+export default EditCampus;

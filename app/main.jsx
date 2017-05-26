@@ -19,7 +19,8 @@ import CampusContainer from './containers/CampusContainer'
 import StudentsContainer from './containers/StudentsContainer'
 import StudentContainer from './containers/StudentContainer'
 import NewCampus from './containers/NewCampus'
-import EditCampusForm from './containers/EditCampus'
+import EditCampus from './containers/EditCampus'
+import NewStudent from './containers/NewStudent'
 
 import {fetchCampuses, getOneCampus} from './redux/campuses'
 import {fetchStudents, getOneStudent} from './redux/students'
@@ -61,7 +62,8 @@ ReactDOM.render (
     <Route path= "/students" component={StudentsContainer} />
     <Route path= "/students/:studentsId" component={StudentContainer} />
     <Route path= "/new-campus" component={NewCampus} />
-    <Route path= "/edit-campus/:campusId" component={EditCampusForm} />
+    <Route path= "/edit-campus/:campusId" component={EditCampus} />
+    <Route path= "/new-student" component={NewStudent} />
     <IndexRedirect to = "/campuses" />
     </Route>
   </Router>

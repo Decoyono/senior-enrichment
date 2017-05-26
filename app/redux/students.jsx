@@ -21,7 +21,7 @@ export const fetchStudents = students => ({type: FETCH, students})
 const add  = student => ({ type: ADD, student });
 const edit = student  => ({ type: EDIT, student });
 const remove = id    => ({ type: REMOVE, id });
-const select = student => ({ type: SELECT, student})
+export const selectStudent = student => ({ type: SELECT, student})
 
 
 

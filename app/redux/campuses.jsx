@@ -21,7 +21,7 @@ export const fetchCampuses = campuses => ({type: FETCH, campuses})
 const add  = campus => ({ type: ADD, campus });
 const edit = campus  => ({ type: EDIT, campus });
 const remove = id    => ({ type: REMOVE, id });
-const select = campus => ({ type: SELECT, campus})
+export const selectCampus = campus => ({ type: SELECT, campus})
 
 
 
