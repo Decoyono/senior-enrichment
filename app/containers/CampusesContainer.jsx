@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
     console.log("THIS IS THE STATE", state)
 
     return {
-        campuses: state.campuses
+        campuses: state.campuses.campuses
     }
 }
 
