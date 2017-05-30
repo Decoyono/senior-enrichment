@@ -19,13 +19,13 @@ export default function Students(props) {
                     <span>Add Student</span>
                 </button>
                 </Link>
-                <table className="table table-striped">
+                <table className="table table-hover">
                     <thead>
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Campus</th>
-                        <th>Remove</th>
+                        <th>Remove and Edit</th>
                     </tr>
                     </thead>
                     <tbody>

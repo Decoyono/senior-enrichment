@@ -13,7 +13,7 @@ const Student = (props) => {
 
 return (<div>
                 <h3>Student</h3>
-                <table className="table table-striped">
+                <table className="table table-hover">
                     <thead>
                     <tr>
                         <th>Name</th>

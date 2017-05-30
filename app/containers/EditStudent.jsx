@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-
 import store from '../store'
 import { editStudent } from '../redux/students'
 
@@ -31,9 +30,10 @@ class EditStudentLocal extends Component {
     const campuses = this.props.campuses;
     const selectedStudent = this.props.selectedStudent;
   
-    return (<form onSubmit={this.handleSubmit}>
+    return (
+    <form onSubmit={this.handleSubmit}>
               <div className="form-group">
-                <label htmlFor="studentName">Student name</label>
+                <label htmlFor="studentName">Student's Name</label>
                 <input
                   type="text"
                   className="form-control"
@@ -43,7 +43,7 @@ class EditStudentLocal extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="studentEmail">Student email</label>
+                <label htmlFor="studentEmail">Student's Email</label>
                 <input
                   type="email"
                   className="form-control"
@@ -53,10 +53,11 @@ class EditStudentLocal extends Component {
                 />
               </div>
               <div className= "form-group">
-                <label>Select A Campus</label>
+                <label>Select Campus</label>
                 <div>
                   <select id="campusId" onChange={this.handleChange}>
-                    <option>    </option> {/*blank first choice*/}
+                    <option>    
+                    </option>
                     {campuses && campuses.map((campus) => {
                       return (<option
                                 key={campus.id}

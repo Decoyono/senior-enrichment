@@ -30,7 +30,7 @@ class NewStudent extends Component {
         const campuses = this.props.campuses
         return (<form onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="studentName">Student name</label>
+                    <label htmlFor="studentName">Student's Name</label>
                     <input
                     type="text"
                     className="form-control"
@@ -40,7 +40,7 @@ class NewStudent extends Component {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="studentEmail">Student email</label>
+                    <label htmlFor="studentEmail">Student's Email</label>
                     <input
                     type="email"
                     className="form-control"
@@ -53,13 +53,15 @@ class NewStudent extends Component {
                     <label>Select A Campus</label>
                     <div>
                     <select id="campusId" onChange={this.handleChange}>
-                        <option>    </option>
+                        <option>      
+                        </option>
                         {campuses && campuses.map((campus) => {
-                        return (<option
-                                    key={campus.id}
-                                    value= {campus.id}>
+                        return (
+                            <option
+                                key={campus.id}
+                                value= {campus.id}>
                                 {campus.name}
-                                </option>)})}
+                            </option>)})}
                     </select>
                     </div>
                 </div>

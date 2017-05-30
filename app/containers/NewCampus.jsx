@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-
 import store from '../store'
 import { addCampus } from '../redux/campuses'
 
@@ -29,7 +28,7 @@ export default class NewCampus extends Component {
     render() {
         return (<form onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="campusName">Campus Name</label>
+                    <label htmlFor="campusName">Campus' Name</label>
                     <input
                     type="text"
                     className="form-control"
@@ -39,12 +38,12 @@ export default class NewCampus extends Component {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="campusImageURL">Campus ImageURL</label>
+                    <label htmlFor="campusImageURL">Campus' Image Link</label>
                     <input
                     type="text"
                     className="form-control"
                     id="imageURL"
-                    placeholder="imageURL"
+                    placeholder="link to image"
                     onChange={this.handleChange}
                     />
                 </div>
